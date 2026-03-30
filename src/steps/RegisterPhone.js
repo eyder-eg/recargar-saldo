@@ -1,7 +1,7 @@
 import { html, LitElement } from "lit";
 import "../components/type-icon.js";
 import "../components/type-text.js";
-import "../components/type-button.js";
+import "../compositions/type-button.js";
 import "../compositions/field-input.js";
 import styles from "./register-phone.css.js";
 import { LOCALE_ES } from "../locales/locale_es.js";
@@ -60,19 +60,19 @@ export class RegisterPhone extends LitElement {
               .value=${this.numberValue}
               .fieldId=${"number"}
               .type=${"number"}
-              .maxLength=${10}
+              .maxLength=${9}
               .name=${"number"}
               label="${LOCALE_ES.field_input_number_label}"
               placeholder="${LOCALE_ES.field_input_number_placeholder}"
-              textFooter=${`${this._numberLength}/10 dígitos`}
-              @value-change=${this._handleNumberChange}
+              textFooter=${`${this._numberLength}${LOCALE_ES.field_input_footer_text}`}
+              @value-changed=${this._handleNumberChange}
             ></field-input>
           </section>
           <section class="section-button">
             <type-button
               .text=${LOCALE_ES.register_phone_success_buttom}
               .icon=${"arrow-right"}
-              ?disabled=${this._numberLength !== 10}
+              ?disabled=${this._numberLength !== 9}
               @click=${this._handleSendNumber}
             ></type-button>
           </section>

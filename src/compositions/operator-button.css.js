@@ -10,7 +10,7 @@ export default css`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem;
+    padding: 1.5rem;
     border-radius: 1rem;
     gap: 0.5rem;
     cursor: pointer;
@@ -29,10 +29,12 @@ export default css`
   .checked {
     position: absolute;
     display: flex;
-    padding: 1rem;
+    padding: 0.4rem;
     background-color: #603ff1;
-    top: 0;
-    right: 0;
+    border-radius: 100%;
+    top: 0.5rem;
+    right: 0.5rem;
+    color: #ffffff;
   }
 
   .no-checked {

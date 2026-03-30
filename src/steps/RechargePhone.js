@@ -1,16 +1,17 @@
 import { html, LitElement } from "lit";
 import styles from "./recharge-phone.css.js";
-import "../components/type-button.js";
+import "../compositions/type-button.js";
 import "../compositions/number-card.js";
 import "../compositions/operator-list.js";
+import "../compositions/amount-list.js";
+import "../components/type-text.js";
 import { LOCALE_ES } from "../locales/locale_es.js";
 import { navigate } from "../utils/navigate.js";
 
 class RechargePhone extends LitElement {
-
   static properties = {
-    phoneNumber : { type : String },
-  }
+    phoneNumber: { type: String },
+  };
 
   constructor() {
     super();
@@ -18,11 +19,11 @@ class RechargePhone extends LitElement {
   }
 
   firstUpdated() {
-    if (this.phoneNumber==="") navigate("/")
+    if (this.phoneNumber === "") navigate("/");
   }
 
   _handleBackButton() {
-    navigate("/")
+    navigate("/");
   }
 
   static styles = styles;
@@ -41,13 +42,27 @@ class RechargePhone extends LitElement {
             ></type-button>
           </header>
           <section>
-            <number-card .phoneNumber=${this.phoneNumber} ></number-card>
+            <number-card .phoneNumber=${this.phoneNumber}></number-card>
           </section>
           <section>
-            <type-text>Selecciona tu operadora</type-text>
+            <type-text
+              .text=${LOCALE_ES.recharge_phone_operator_section_title}
+              .tag=${"h2"}
+              .size=${"m"}
+            ></type-text>
             <operator-list></operator-list>
           </section>
-        </div>  
+          <section>
+            <type-text
+              .text=${LOCALE_ES.recharge_phone_amount_section_title}
+              .tag=${"h2"}
+              .size=${"m"}
+            ></type-text>
+            <amount-list></amount-list>
+          </section>
+          
+        <type-button .text=${"Continuar"}></type-button>
+        </div>
       </main>
     `;
   }

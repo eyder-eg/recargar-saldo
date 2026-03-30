@@ -16,12 +16,16 @@ export default css`
     font-size: 0.75rem;
   }
 
+  .m {
+    font-size: 1rem;
+  }
+
   .l {
     font-size: 1.5rem;
   }
 
   .center {
-    text-align: center
+    text-align: center;
   }
 
   .left {
@@ -29,10 +33,10 @@ export default css`
   }
 
   .right {
-    text-align: right; 
+    text-align: right;
   }
 
   .bold {
-    font-weight : 600
+    font-weight: 600;
   }
 `;

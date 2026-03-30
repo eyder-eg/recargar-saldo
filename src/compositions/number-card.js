@@ -18,7 +18,7 @@ export class NumberCard extends LitElement {
   render() {
     return html`
       <div class="card">
-        <type-icon .icon=${"smartphone"}></type-icon>
+        <type-icon .icon=${"smartphone"} .variant=${"secondary"}></type-icon>
         <div class="container-text">
           <type-text
             .text=${LOCALE_ES.number_card_title}

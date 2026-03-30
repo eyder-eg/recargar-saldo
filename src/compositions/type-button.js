@@ -1,12 +1,14 @@
-import { html, LitElement } from "lit";
+import { html, LitElement, nothing } from "lit";
 import styles from "./type-button.css";
-import { ICONS_PATH } from "../utils/constants";
+import "../components/type-text.js";
+import "../components/type-icon.js";
 
 export class TypeButton extends LitElement {
   static properties = {
     text: { type: String },
     icon: { type: String },
     type: { type: String },
+    value: { type: String },
     iconPosition: { type: String },
     disabled: { type: Boolean },
   };
@@ -16,15 +18,25 @@ export class TypeButton extends LitElement {
     this.text = "";
     this.icon = "";
     this.type = "default";
+    this.value = "";
     this.iconPosition = "right";
     this.disabled = false;
   }
 
   _renderContent() {
+    let iconTemplate = html`<type-icon
+      .icon=${this.icon}
+      .variant=${"secondary"}
+    ></type-icon>`;
+    
+    let textTemplate = html`<type-text .text=${this.text} .tag=${"p"}>
+    </type-text>`;
+
+    if (!this.icon) return textTemplate;
     if (this.iconPosition === "right") {
-      return html` ${this.text} <img src="${ICONS_PATH}${this.icon}.svg" /> `;
+      return html`${textTemplate}${iconTemplate}`;
     } else {
-      return html` <img src="${ICONS_PATH}${this.icon}.svg" /> ${this.text}`;
+      return html`${iconTemplate}${textTemplate}`;
     }
   }
 
@@ -32,7 +44,11 @@ export class TypeButton extends LitElement {
 
   render() {
     return html`
-      <button class="${this.type}-button" ?disabled=${this.disabled}>
+      <button
+        class="${this.type}-button"
+        ?disabled=${this.disabled}
+        value=${this.value}
+      >
         ${this._renderContent()}
       </button>
     `;

@@ -11,7 +11,7 @@ class MyApp extends LitElement {
 
   constructor() {
     super();
-    this.phoneNumber = "xd";
+    this.phoneNumber = "";
     this.router = new Router(this, [
       {
         path: "/",

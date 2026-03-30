@@ -37,7 +37,7 @@ export class FieldInput extends LitElement {
     } else this.value = newValue;
 
     this.dispatchEvent(
-      new CustomEvent("value-change", {
+      new CustomEvent("value-changed", {
         detail: { value: this.value },
         bubbles: true,
         composed: true,

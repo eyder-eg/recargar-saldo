@@ -4,8 +4,9 @@ export default css`
   .card {
     background-color: #edf2ff;
     display: flex;
+    align-items: center;
     padding: 1rem 1rem;
-    gap: 0.5rem;
+    gap: 0.8rem;
     border-radius: 1rem;
   }
 

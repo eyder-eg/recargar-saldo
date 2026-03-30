@@ -1,8 +1,8 @@
 import { html, LitElement } from "lit";
 import { repeat } from "lit/directives/repeat.js";
-import { OPERATOR_LIST } from "../utils/constants";
-import "../components/operator-button.js";
+import "./operator-button.js";
 import styles from "./operator-list.css.js";
+import { OPERATOR_LIST } from "../utils/constants.js";
 
 class OperatorList extends LitElement {
   static properties = {
@@ -12,7 +12,7 @@ class OperatorList extends LitElement {
 
   constructor() {
     super();
-    this._operatorList = [...OPERATOR_LIST];
+    this._operatorList = [...OPERATOR_LIST.PEN];
     this._operatorActiveId = 0;
   }
 

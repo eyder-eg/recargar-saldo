@@ -14,6 +14,9 @@ export default css`
     background-color: white;
     padding: 1.5rem 2rem;
     border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
   header {
@@ -22,6 +25,8 @@ export default css`
   }
 
   section {
-    padding: 1rem 0 ;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 `;

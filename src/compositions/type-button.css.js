@@ -2,7 +2,7 @@ import { css } from "lit";
 
 export default css`
   .default-button {
-    background-color: blue;
+    background-color: #432dd7;
     color: white;
     font-weight: 600;
     width: 100%;

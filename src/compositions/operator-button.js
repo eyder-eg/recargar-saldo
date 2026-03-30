@@ -1,6 +1,6 @@
 import { html, LitElement } from "lit";
-import "./type-text.js";
-import "./type-icon.js";
+import "../components/type-text.js";
+import "../components/type-icon.js";
 import styles from "./operator-button.css.js";
 
 class OperatorButton extends LitElement {
@@ -33,8 +33,14 @@ class OperatorButton extends LitElement {
         @click=${this._sendOperator}
         class="${this.active ? "active" : ""}"
       >
-        <div class="${this.active ? "checked" : "no-checked"}"></div>
-        <type-icon .icon=${this.operator.icon}></type-icon>
+        <div class="${this.active ? "checked" : "no-checked"}">
+          <type-icon
+            .icon=${"check"}
+            .variant=${"secondary"}
+            .size=${"s"}
+          ></type-icon>
+        </div>
+        <type-icon .icon=${this.operator.icon} .size=${"l"} .variant=${"secondary"}></type-icon>
         <type-text
           .text=${this.operator.name}
           .tag=${"p"}
