@@ -4,6 +4,7 @@ import "../components/type-text.js";
 import styles from "./view-details.css.js";
 import { navigate } from "../utils/navigate.js";
 import { CURRENCY_SYMBOL_LIST } from "../utils/constants.js";
+import { LOCALE_ES } from "../locales/locale_es.js";
 
 class ViewDetails extends LitElement {
   static styles = styles;
@@ -13,7 +14,7 @@ class ViewDetails extends LitElement {
     phoneNumber: { type: String },
     operator: { type: String },
     datetime: { type: String },
-    code : { type: String}
+    code: { type: String },
   };
 
   constructor() {
@@ -22,7 +23,7 @@ class ViewDetails extends LitElement {
     this.phoneNumber = "";
     this.operator = "";
     this.datetime = "";
-    this.code = Math.random().toString(36).substring(2, 12).toUpperCase()
+    this.code = Math.random().toString(36).substring(2, 12).toUpperCase();
   }
 
   firstUpdated() {
@@ -37,20 +38,24 @@ class ViewDetails extends LitElement {
     return html`<main>
       <div class="card">
         <header>
-          <type-icon .icon=${"check-circle"} .size=${"l"} class=${"check-icon"}></type-icon>
+          <type-icon
+            .icon=${"check-circle"}
+            .size=${"l"}
+            class=${"check-icon"}
+          ></type-icon>
           <type-text
             .tag=${"h1"}
             .size=${"l"}
-            .text=${"¡Recarga exitosa!"}
+            .text=${LOCALE_ES.view_details_title}
           ></type-text>
           <type-text
             .tag=${"p"}
-            .text=${"Tu saldo ha sido recargado correctamente"}
+            .text=${LOCALE_ES.view_details_description}
           ></type-text>
         </header>
         <section class="details">
           <type-text
-            .text=${"Monto recargado"}
+            .text=${LOCALE_ES.view_details_amount_title}
             .tag=${"p"}
             .align=${"center"}
           ></type-text>
@@ -62,21 +67,21 @@ class ViewDetails extends LitElement {
             class=${"amount-text"}
           ></type-text>
           <type-card
-            .title=${"Número recargado"}
+            .title=${LOCALE_ES.view_details_phone_number_title}
             .description=${this.phoneNumber}
           ></type-card>
           <type-card
-            .title=${"Operadora"}
+            .title=${LOCALE_ES.view_details_operator_title}
             .description=${this.operator}
             .icon=${"credit-card"}
           ></type-card>
           <type-card
-            .title=${"Número de transacción"}
+            .title=${LOCALE_ES.view_details_transaction_number_title}
             .description=${this.code}
             .icon=${"hash"}
           ></type-card>
           <type-card
-            .title=${"Fecha y hora"}
+            .title=${LOCALE_ES.view_details_datetime_title}
             .description=${this.datetime}
             .icon=${"calendar"}
           ></type-card>
@@ -84,7 +89,7 @@ class ViewDetails extends LitElement {
         <type-button
           .icon=${"house"}
           .iconPosition=${"left"}
-          .text=${"Nueva recarga"}
+          .text=${LOCALE_ES.view_details_final_button}
           @click=${this._handleClick}
         ></type-button>
       </div>

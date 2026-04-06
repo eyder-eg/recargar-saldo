@@ -89,7 +89,7 @@ class RechargePhone extends LitElement {
           </section>
 
           <type-button
-            .text=${"Continuar"}
+            .text=${LOCALE_ES.recharge_phone_success_buttom}
             ?disabled=${this.amount === 0 || this.operatorId === ""}
             @click=${this._handleClickButton}
           ></type-button>

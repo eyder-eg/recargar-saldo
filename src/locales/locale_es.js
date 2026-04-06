@@ -9,5 +9,14 @@ export const LOCALE_ES = {
   recharge_phone_back_buttom : "Volver",
   number_card_title : "Recargando a:",
   recharge_phone_operator_section_title : "Selecciona tu operadora",
-  recharge_phone_amount_section_title : "Elige el monto"
+  recharge_phone_amount_section_title : "Elige el monto",
+  recharge_phone_success_buttom : "Continuar",
+  view_details_title : "¡Recarga exitosa!",
+  view_details_description : "Tu saldo ha sido recargado correctamente",
+  view_details_amount_title : "Monto recargado",
+  view_details_phone_number_title : "Número recargado",
+  view_details_operator_title : "Operadora",
+  view_details_transaction_number_title : "Número de transacción",
+  view_details_datetime_title : "Fecha y hora",
+  view_details_final_button : "Nueva recarga",
 }
