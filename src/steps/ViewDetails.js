@@ -37,7 +37,7 @@ class ViewDetails extends LitElement {
     return html`<main>
       <div class="card">
         <header>
-          <type-icon .icon=${"check-circle"} .size=${"l"}></type-icon>
+          <type-icon .icon=${"check-circle"} .size=${"l"} class=${"check-icon"}></type-icon>
           <type-text
             .tag=${"h1"}
             .size=${"l"}
@@ -68,14 +68,17 @@ class ViewDetails extends LitElement {
           <type-card
             .title=${"Operadora"}
             .description=${this.operator}
+            .icon=${"credit-card"}
           ></type-card>
           <type-card
             .title=${"Número de transacción"}
             .description=${this.code}
+            .icon=${"hash"}
           ></type-card>
           <type-card
             .title=${"Fecha y hora"}
             .description=${this.datetime}
+            .icon=${"calendar"}
           ></type-card>
         </section>
         <type-button

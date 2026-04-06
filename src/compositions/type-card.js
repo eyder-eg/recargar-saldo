@@ -1,6 +1,5 @@
 import { html, LitElement } from "lit";
 import styles from "./type-card.css.js";
-import { LOCALE_ES } from "../locales/locale_es.js";
 import "../components/type-icon.js";
 import "../components/type-text.js";
 
@@ -8,19 +7,21 @@ export class NumberCard extends LitElement {
   static properties = {
     title: { type: String },
     description: { type: String },
+    icon: { type : String}
   };
 
   constructor() {
     super();
     this.title = "Sin título";
     this.description = "Sin descripción";
+    this.icon = "smartphone";
   }
   static styles = styles;
 
   render() {
     return html`
       <div class="card">
-        <type-icon .icon=${"smartphone"} .variant=${"secondary"}></type-icon>
+        <type-icon .icon=${this.icon} .variant=${"secondary"}></type-icon>
         <div class="container-text">
           <type-text
             .text=${this.title}

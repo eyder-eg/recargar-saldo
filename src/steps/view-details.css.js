@@ -6,7 +6,8 @@ export default css`
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
+    padding : 1rem;
   }
 
   header {
@@ -15,8 +16,12 @@ export default css`
     align-items: center;
   }
 
+  .check-icon {
+    color: green;
+  }
+
   .details {
-    margin : 1rem 0;
+    margin: 1rem 0;
     background-color: #edf2ff;
     border-radius: 1rem;
     padding: 1rem;

@@ -1,6 +1,9 @@
 import { css } from "lit";
 
 export default css`
+:host {
+  --icon-color : currentColor
+}
   .container-icon {
     display: flex;
     flex-direction: column;
