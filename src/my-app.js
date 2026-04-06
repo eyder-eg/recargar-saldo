@@ -6,12 +6,18 @@ import "./steps/ViewDetails.js";
 
 class MyApp extends LitElement {
   static properties = {
-    phoneNumber: { type: String },
+    _phoneNumber: { type: String },
+    _amount: { type: Number },
+    _operator: { type: Number },
+    _datetime: { type: Number },
   };
 
   constructor() {
     super();
-    this.phoneNumber = "";
+    this._phoneNumber = "";
+    this._amount = "";
+    this._operator = "";
+    this._datetime = "";
     this.router = new Router(this, [
       {
         path: "/",
@@ -20,23 +26,47 @@ class MyApp extends LitElement {
       {
         path: "/recharge",
         render: () =>
-          html`<recharge-phone .phoneNumber=${this.phoneNumber}></recharge-phone>`,
+          html`<recharge-phone
+            .phoneNumber=${this._phoneNumber}
+          ></recharge-phone>`,
       },
       {
         path: "/view",
         render: () =>
-          html`<view-details .number=${this.phoneNumber}></view-details>`,
+          html`<view-details
+            .phoneNumber=${this._phoneNumber}
+            .operator=${this._operator}
+            .amount=${this._amount}
+            .datetime=${this._datetime}
+          ></view-details>`,
       },
     ]);
   }
 
-  handleRegisterNumber(e) {
-    this.phoneNumber = e.detail.phoneNumber;
+  _setPhoneNumber(e) {
+    this._phoneNumber = e.detail.phoneNumber;
+  }
+
+  _setAmount(e) {
+    this._amount = e.detail.amount;
+  }
+
+  _setOperator(e) {
+    this._operator = e.detail.operator.name;
+  }
+
+  _setDatetime(e) {
+    this._datetime = e.detail.datetime;
   }
 
   render() {
     return html`
-      <div @register-phone-number=${this.handleRegisterNumber}>
+      <div
+        @send-phone-number=${this._setPhoneNumber}
+        @send-amount=${this._setAmount}
+        @send-operator=${this._setOperator}
+        @send-datetime=${this._setDatetime}
+      >
         ${this.router.outlet()}
       </div>
     `;

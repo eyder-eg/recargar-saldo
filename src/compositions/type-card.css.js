@@ -1,8 +1,13 @@
 import { css } from "lit";
 
 export default css`
+
+:host {
+  --bg-color : #dadada;
+}
+
   .card {
-    background-color: #edf2ff;
+    background-color: var(--bg-color);
     display: flex;
     align-items: center;
     padding: 1rem 1rem;

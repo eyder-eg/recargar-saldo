@@ -7,18 +7,24 @@ import styles from "./amount-list.css.js";
 class AmountList extends LitElement {
   static properties = {
     _amountList: { type: Array },
-    _amountActiveId: { type: Number },
+    _amountActive: { type: Number },
   };
 
   constructor() {
     super();
     this._amountList = [...AMOUNT_LIST.PEN];
-    this._amountActiveId = 0;
+    this._amountActive = 0;
   }
 
   _activeOperator(e) {
-    const amountSelected = e.detail.amount;
-    this._amountActiveId = amountSelected.id;
+    this._amountActive = e.detail.value;
+    this.dispatchEvent(
+      new CustomEvent("send-amount", {
+        detail: { amount: this._amountActive },
+        bubbles: true,
+        composed: true,
+      }),
+    );
   }
 
   static styles = styles;
@@ -32,9 +38,9 @@ class AmountList extends LitElement {
           (amount) => html`
             <li>
               <type-button
-                @click=${this._activeOperator}
+                @send-value=${this._activeOperator}
                 .value=${amount.amount}
-                ?active=${this._operatorActiveId === amount.id}
+                .active=${amount.amount === this._amountActive}
                 .text=${`${CURRENCY_SYMBOL_LIST.PEN}${amount.amount}`}
               ></type-button>
             </li>

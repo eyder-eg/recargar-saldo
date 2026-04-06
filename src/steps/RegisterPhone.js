@@ -26,13 +26,14 @@ export class RegisterPhone extends LitElement {
 
   _handleSendNumber() {
     this.dispatchEvent(
-      new CustomEvent("register-phone-number", {
+      new CustomEvent("send-phone-number", {
         detail: { phoneNumber: this.numberValue },
         bubbles: true,
         composed: true,
       }),
     );
-    navigate("/recharge")
+
+    navigate("/recharge");
   }
   static styles = styles;
 

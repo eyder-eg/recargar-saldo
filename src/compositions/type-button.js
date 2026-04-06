@@ -11,6 +11,7 @@ export class TypeButton extends LitElement {
     value: { type: String },
     iconPosition: { type: String },
     disabled: { type: Boolean },
+    active: { type: Boolean },
   };
 
   constructor() {
@@ -21,6 +22,7 @@ export class TypeButton extends LitElement {
     this.value = "";
     this.iconPosition = "right";
     this.disabled = false;
+    this.active = true;
   }
 
   _renderContent() {
@@ -40,12 +42,18 @@ export class TypeButton extends LitElement {
     }
   }
 
+  _sendValue() {
+    this.dispatchEvent(new CustomEvent("send-value", {
+      detail :{value: this.value}
+    }))
+  }
   static styles = styles;
 
   render() {
     return html`
       <button
-        class="${this.type}-button"
+      @click=${this._sendValue}
+        class="${this.type}-button ${this.active ? `${this.type}-active` : ""}"
         ?disabled=${this.disabled}
         value=${this.value}
       >

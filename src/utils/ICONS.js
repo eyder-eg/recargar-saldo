@@ -3,6 +3,4 @@ const ICONS = import.meta.glob("../assets/icons/*.svg", {
   eager: true,
 });
 
-console.log(ICONS);
-
 export default ICONS

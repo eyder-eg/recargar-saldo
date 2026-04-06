@@ -1,11 +1,16 @@
 import { css } from "lit";
 
 export default css`
+  :host {
+    --text-color: currentColor;
+  }
+
   h1,
   h2,
   h3,
   p {
     margin: 0;
+    color: var(--text-color);
   }
 
   .xs {
@@ -22,6 +27,10 @@ export default css`
 
   .l {
     font-size: 1.5rem;
+  }
+
+  .xl {
+    font-size: 2.5rem;
   }
 
   .center {

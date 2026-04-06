@@ -1,17 +1,19 @@
 import { html, LitElement } from "lit";
-import styles from "./number-card.css.js";
+import styles from "./type-card.css.js";
 import { LOCALE_ES } from "../locales/locale_es.js";
 import "../components/type-icon.js";
 import "../components/type-text.js";
 
 export class NumberCard extends LitElement {
   static properties = {
-    phoneNumber: { type: String },
+    title: { type: String },
+    description: { type: String },
   };
 
   constructor() {
     super();
-    this.phoneNumber = "Sin número";
+    this.title = "Sin título";
+    this.description = "Sin descripción";
   }
   static styles = styles;
 
@@ -21,12 +23,12 @@ export class NumberCard extends LitElement {
         <type-icon .icon=${"smartphone"} .variant=${"secondary"}></type-icon>
         <div class="container-text">
           <type-text
-            .text=${LOCALE_ES.number_card_title}
+            .text=${this.title}
             .tag=${"p"}
             .size=${"s"}
           ></type-text>
           <type-text
-            .text=${this.phoneNumber}
+            .text=${this.description}
             .tag=${"p"}
             .size=${"m"}
             .weight=${"bold"}
@@ -37,4 +39,4 @@ export class NumberCard extends LitElement {
   }
 }
 
-customElements.define("number-card", NumberCard);
+customElements.define("type-card", NumberCard);
